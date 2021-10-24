@@ -1,3 +1,8 @@
+/*		GROUP 28
+ * Gatlin Farrington, Vishok Jayaraman, Pramith Chivanna, Haydn Van Norman, Jane Seangatith
+ * 
+ */
+
 import java.io.IOException;
 import java.util.Scanner;
 //import other packages
@@ -15,6 +20,10 @@ import java.io.FileNotFoundException;
 //import java.util
 import java.util.ArrayList;
 
+
+//INITIAL PROTOTYPE SUBMISSION
+//this is testing the ability to store user information and login in to a user.
+//The ability to create a user is also present here
 public class Main {
 
 	public static void main(String[] args) throws IOException {
@@ -33,6 +42,7 @@ public class Main {
 		System.out.println("Would you like to: \n1. Sign up a new user \n2.Sign into a user?");
 		int choice = choiceScan.nextInt();
 		System.out.println(patientList.get(0).Name);
+		
 		//choice 1, add user
 		if(choice == 1) {
 			System.out.println("Please enter your 'name,password,age,address,phone,email.'");

@@ -1,5 +1,8 @@
 package Users;
-
+/*		GROUP 28
+ * Gatlin Farrington, Vishok Jayaraman, Pramith Chivanna, Haydn Van Norman, Jane Seangatith
+ * 
+ */
 public class User {
 	public String Name;
 	
@@ -10,5 +13,28 @@ public class User {
 		Name = name;
 		Password = password;
 		Birthday = birthday;
+	}
+	
+	public String getName() {
+		return Name;
+	}
+	
+	public void setName(String Name){
+		Name = this.Name;
+	}
+	
+	public int getBirthday() {
+		return Birthday;
+	}
+	public void setBirthday(int birthday) {
+		Birthday = birthday;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		password = this.password;
 	}
 }
