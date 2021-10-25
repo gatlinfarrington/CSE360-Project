@@ -50,10 +50,13 @@ public class Main {
 			String input = scan.nextLine();
 			String[] inputArr = input.split(",");
 			
-			//IMPLEMENT CHECK IF USER EXISTS
 			
-			
-			signup(inputArr[0], inputArr[1], Integer.parseInt(inputArr[2]), inputArr[3], inputArr[4], inputArr[5]);
+			//if user does not exist, sign them up, if they do deny.
+			if(!userExists(patientList, inputArr[0],inputArr[1])) {
+				signup(inputArr[0], inputArr[1], Integer.parseInt(inputArr[2]), inputArr[3], inputArr[4], inputArr[5]);
+			}else {
+				System.out.println("A user with that userName and Password already Exists");
+			}
 			
 		}else if(choice == 2) { //Choice 2, log into a user
 			
