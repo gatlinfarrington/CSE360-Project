@@ -20,13 +20,23 @@ import java.io.FileNotFoundException;
 //import java.util
 import java.util.ArrayList;
 
+import javafx.*;
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.*;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 //INITIAL PROTOTYPE SUBMISSION
 //this is testing the ability to store user information and login in to a user.
 //The ability to create a user is also present here
-public class Main {
+public class Main extends Application{
 
 	public static void main(String[] args) throws IOException {
+		launch(args);
 		//welcome and create Scanners
 		System.out.println("Welcome to Mentcare!");
 		Scanner scan = new Scanner(System.in);
@@ -34,10 +44,13 @@ public class Main {
 		Patient CurUser;
 		
 		
+		
+		
 		//create and Initialize Patient List
 		ArrayList<Patient> patientList = new ArrayList<Patient>();
 		initPatientList(patientList);
 		
+		/*
 		//choices
 		System.out.println("Would you like to: \n1. Sign up a new user \n2.Sign into a user?");
 		int choice = choiceScan.nextInt();
@@ -75,7 +88,7 @@ public class Main {
 			System.out.println("Not a valid choice.");
 		}
 		
-		
+		*/
 		
 	}
 	
@@ -140,6 +153,26 @@ public class Main {
 		}
 		return null;
 	}
+	
+	
+//	TEST CODE TO SEE IF FX IS WORKING IN MY PROJECT
+	@Override
+    public void start(Stage primaryStage) throws Exception {
+		
+        primaryStage.setTitle("MentCare");
+        Button btn = new Button();
+       
+        btn.setText("Launch MentCare");
+        Login l = new Login(primaryStage);
+        Scene loginScene = l.getLoginScene();
+        btn.setOnAction(e -> primaryStage.setScene(loginScene));
+
+        StackPane root = new StackPane();
+        root.getChildren().add(btn);
+        
+        primaryStage.setScene(new Scene(root, 300, 250));
+        primaryStage.show();
+    }
 	
 
 }
