@@ -36,6 +36,9 @@ import javafx.stage.Stage;
 public class Main extends Application{
 
 	public static void main(String[] args) throws IOException {
+		//create and Initialize Patient List
+		ArrayList<Patient> patientList = new ArrayList<Patient>();
+		initPatientList(patientList);
 		launch(args);
 		//welcome and create Scanners
 		System.out.println("Welcome to Mentcare!");
@@ -46,9 +49,7 @@ public class Main extends Application{
 		
 		
 		
-		//create and Initialize Patient List
-		ArrayList<Patient> patientList = new ArrayList<Patient>();
-		initPatientList(patientList);
+		
 		
 		/*
 		//choices
@@ -164,7 +165,7 @@ public class Main extends Application{
        
         btn.setText("Launch MentCare");
         Login l = new Login(primaryStage);
-        Scene loginScene = l.getLoginScene();
+        Scene loginScene = l.getScene();
         btn.setOnAction(e -> primaryStage.setScene(loginScene));
 
         StackPane root = new StackPane();

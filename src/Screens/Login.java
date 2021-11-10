@@ -25,17 +25,25 @@ public class Login{
 		l.setText("Welcome to MentCare");
 		l.setPrefSize(1000,300);
 		l.setMinSize(300, 50);
-		l.setAlignment(Pos.TOP_CENTER);
+		l.setAlignment(Pos.CENTER);
 		TextField name = new TextField();
 		name.setText("name");
+		name.setAlignment(Pos.CENTER);
 		TextField pw = new TextField();
 		pw.setText("Password");
+		pw.setAlignment(Pos.CENTER);
 		Button login = new Button();
 		login.setText("Login");
-		login.setOnAction(e -> System.out.println("Login Press"));
+		login.setAlignment(Pos.CENTER);
+		login.setOnAction(e -> {
+			HomeScreen hs = new HomeScreen(primaryStage);
+			primaryStage.setScene(hs.getScene());
+		});
 		Button createNew = new Button("Create new Account");
+		createNew.setAlignment(Pos.CENTER);
 		createNew.setOnAction(e -> {
-			primaryStage.setScene(null);
+			createAccount c = new createAccount(primaryStage);
+			primaryStage.setScene(c.getScene());
 		});
 //		StackPane root = new StackPane();
 //		root.getChildren().addAll(l, name, pw, login);
@@ -49,7 +57,7 @@ public class Login{
 		
 	}
 	
-	public Scene getLoginScene() {
+	public Scene getScene() {
 		return scene1;
 	}
 
