@@ -22,7 +22,6 @@ public class Messages {
 				send.setText("Send");
 				send.setOnAction(e -> {
 					//send message
-					
 				});
 				
 				

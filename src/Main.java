@@ -37,15 +37,15 @@ public class Main extends Application{
 
 	public static void main(String[] args) throws IOException {
 		//create and Initialize Patient List
-		ArrayList<Patient> patientList = new ArrayList<Patient>();
-		initPatientList(patientList);
+//		ArrayList<Patient> patientList = new ArrayList<Patient>();
+//		initPatientList(patientList);
 		launch(args);
 		//welcome and create Scanners
-		System.out.println("Welcome to Mentcare!");
-		Scanner scan = new Scanner(System.in);
-		Scanner choiceScan = new Scanner(System.in);
-		Patient CurUser;
-		
+//		System.out.println("Welcome to Mentcare!");
+//		Scanner scan = new Scanner(System.in);
+//		Scanner choiceScan = new Scanner(System.in);
+//		Patient CurUser;
+//		
 		
 		
 		
@@ -94,66 +94,66 @@ public class Main extends Application{
 	}
 	
 		
-	public static void signup(String name, String pass, int age, String address, String phone, String email) {
-		File PatientFile = new File("PatientFile.txt");
-		try {
-			FileWriter fw = new FileWriter(PatientFile, true); //true means it will append at the bottom.
-			fw.write(name + ","+ pass + "," + age + "," + address + "," + phone + "," + email + "\n");
-			
-			
-			fw.close();
-			System.out.println("User added.");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+//	public static void signup(String name, String pass, int age, String address, String phone, String email) {
+//		File PatientFile = new File("PatientFile.txt");
+//		try {
+//			FileWriter fw = new FileWriter(PatientFile, true); //true means it will append at the bottom.
+//			fw.write(name + ","+ pass + "," + age + "," + address + "," + phone + "," + email + "\n");
+//			
+//			
+//			fw.close();
+//			System.out.println("User added.");
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 	
-	public static void initPatientList(ArrayList<Patient> List) {
-		try {
-			//will use a bufferedReader to read the text doc that stores info
-			BufferedReader br = new BufferedReader(new FileReader("PatientFile.txt"));
-			String line = br.readLine();
-			String[] UserArr = new String[6];
-			while(line != null) {
-				UserArr = line.split(",");
-				//add new patient to the list
-				List.add(new Patient(UserArr[0], UserArr[1], Integer.parseInt(UserArr[2]), UserArr[3], UserArr[4], UserArr[5]));
-				line = br.readLine();
-			}
-			br.close();
-			System.out.println("Pateint list has been initialized.");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	public static boolean userExists(ArrayList<Patient> List, String name, String password) {
-		for(int i = 0; i < List.size(); i++) {
-			if(name.equals(List.get(i).Name) ) {
-				
-				if(password.equals(List.get(i).Password)) {
-					//nested if statements to require both be true.
-					return true;
-				}
-			}
-		}
-		
-		return false;
-	}
-	
-	public static Patient getPatient(ArrayList<Patient> List, String name, String password) {
-		for(int i = 0; i < List.size(); i++) {
-			if(name.equals(List.get(i).Name) ) {
-				
-				if(password.equals(List.get(i).Password)) {
-					return List.get(i);
-				}
-			}
-		}
-		return null;
-	}
+//	public static void initPatientList(ArrayList<Patient> List) {
+//		try {
+//			//will use a bufferedReader to read the text doc that stores info
+//			BufferedReader br = new BufferedReader(new FileReader("PatientFile.txt"));
+//			String line = br.readLine();
+//			String[] UserArr = new String[6];
+//			while(line != null) {
+//				UserArr = line.split(",");
+//				//add new patient to the list
+//				List.add(new Patient(UserArr[0], UserArr[1], Integer.parseInt(UserArr[2]), UserArr[3], UserArr[4], UserArr[5]));
+//				line = br.readLine();
+//			}
+//			br.close();
+//			System.out.println("Pateint list has been initialized.");
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
+//	
+//	public static boolean userExists(ArrayList<Patient> List, String name, String password) {
+//		for(int i = 0; i < List.size(); i++) {
+//			if(name.equals(List.get(i).Name) ) {
+//				
+//				if(password.equals(List.get(i).Password)) {
+//					//nested if statements to require both be true.
+//					return true;
+//				}
+//			}
+//		}
+//		
+//		return false;
+//	}
+//	
+//	public static Patient getPatient(ArrayList<Patient> List, String name, String password) {
+//		for(int i = 0; i < List.size(); i++) {
+//			if(name.equals(List.get(i).Name) ) {
+//				
+//				if(password.equals(List.get(i).Password)) {
+//					return List.get(i);
+//				}
+//			}
+//		}
+//		return null;
+//	}
 	
 	
 //	TEST CODE TO SEE IF FX IS WORKING IN MY PROJECT
