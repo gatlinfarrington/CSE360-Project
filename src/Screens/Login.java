@@ -32,32 +32,47 @@ public class Login{
 		l.setPrefSize(1000,300);
 		l.setMinSize(300, 50);
 		l.setAlignment(Pos.CENTER);
+		
 		TextField name = new TextField();
 		name.setText("name");
 		name.setAlignment(Pos.CENTER);
+		
 		TextField pw = new TextField();
 		pw.setText("Password");
 		pw.setAlignment(Pos.CENTER);
+		
 		Button login = new Button();
-		ComboBox select = new ComboBox();
+		
+		ComboBox<String> select = new ComboBox();
 		select.getItems().addAll("Patient", "Doctor", "Nurse");
+		select.setPromptText("Account Type:");
+		
 		login.setText("Login");
 		login.setAlignment(Pos.CENTER);
 		login.setOnAction(e -> {
-			if(select.getValue().equals("Patient")) {
-			// if the user exists, move to homescreen, set the currentUser
-			if(UserTracker.userExists(ut.getPatientList(), name.getText(), pw.getText())) {
-				System.out.println("User Exists!");
-				Patient curPatient = UserTracker.getPatient(ut.getPatientList(), name.getText(), pw.getText());
-				HomeScreen hs = new HomeScreen(primaryStage, curPatient);
-				primaryStage.setScene(hs.getScene());
+			if(select.getValue().equals("Patient")) { //Patient signin is selected
 				
-			}else {
-				curUser = null;
+				// if the user exists, move to homescreen, set the currentUser
+				if(UserTracker.userExists(ut.getPatientList(), name.getText(), pw.getText())) {
+					System.out.println("User Exists!");
+					Patient curPatient = UserTracker.getPatient(ut.getPatientList(), name.getText(), pw.getText());
+					HomeScreen hs = new HomeScreen(primaryStage, curPatient);
+					primaryStage.setScene(hs.getScene());
+					
+				}else {
+					name.clear();
+					pw.clear();
+					name.setText("name");
+					pw.setText("Password");
+					l.setText("INCORRECT USERNAME OR PASSWORD");
+				}
 			}
-				HomeScreen hs = new HomeScreen(primaryStage);
-				primaryStage.setScene(hs.getScene());
-			}else {
+			else if(select.getValue().equals("Nurse")) {//if Logging into a Nurse, will be same as patient but Swapped out for signing into a nurse
+				
+			}
+			else if(select.getValue().equals("Doctor")) {//if Logging into a Doctor, will be same as patient but Swapped out for signing into a Doc
+				
+			}else {//if none of the above
 				//if it doesnt display incorrect info, clear the text boxes.
 				name.clear();
 				pw.clear();
@@ -69,14 +84,13 @@ public class Login{
 			
 			
 		});
+		
 		Button createNew = new Button("Create new Account");
 		createNew.setAlignment(Pos.CENTER);
 		createNew.setOnAction(e -> {
 			createAccount c = new createAccount(primaryStage);
 			primaryStage.setScene(c.getScene());
 		});
-//		StackPane root = new StackPane();
-//		root.getChildren().addAll(l, name, pw, login);
 		
 		
 		VBox layout1 = new VBox();     

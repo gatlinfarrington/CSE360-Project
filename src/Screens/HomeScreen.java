@@ -13,7 +13,7 @@ import Users.*;
 public class HomeScreen {
 	Scene home;
 	//default
-	public HomeScreen(Stage primaryStage) {
+	public HomeScreen(Stage primaryStage) { // everyhting still needs to be implemented, way to show data, way to store records, etc.
 		//generic home screen, should never be used outside of testing
 		Label l = new Label();
 		l.setText("Welcome to the HomePage");

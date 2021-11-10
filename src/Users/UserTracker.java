@@ -7,14 +7,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class UserTracker {
+public class UserTracker { //this class is used to keep track of the Lists of all users, right now only patient is implemented
 	public static ArrayList<Patient> patientList = new ArrayList<Patient>();
+	
 	public UserTracker() {
 		initPatientList();
-		//initDoctorList
-		//initNurseList
+		//initDoctorList(); //STILL NEEDS IMPLEMENTATION
+		//initNurseList(); //STILL NEEDS IMPLEMENTATION
 	}
 	
+	//uses a bufferedReader and the PateintFile to create an arrayList of Patients
 	public static void initPatientList() {
 		try {
 			//will use a bufferedReader to read the text doc that stores info
@@ -40,6 +42,7 @@ public class UserTracker {
 		}
 	}
 
+	//checks to see if patient exists
 	public static boolean userExists(ArrayList<Patient> List, String name, String password) {
 		for(int i = 0; i < List.size(); i++) {
 			if(name.equals(List.get(i).Name) ) {
@@ -53,7 +56,7 @@ public class UserTracker {
 		
 		return false;
 	}
-	
+	//returns a patient in the list.
 	public static Patient getPatient(ArrayList<Patient> List, String name, String password) {
 		for(int i = 0; i < List.size(); i++) {
 			if(name.equals(List.get(i).Name) ) {
@@ -66,10 +69,11 @@ public class UserTracker {
 		return null;
 	}
 	
+	//returns the patientList
 	public ArrayList<Patient> getPatientList(){
 		return patientList;
 	}
-	
+	//adds a pateint to the file tracking all of them.
 	public static void signupPatient(String name, String pass, int age, String address, String phone, String email) {
 		File PatientFile = new File("PatientFile.txt");
 		try {

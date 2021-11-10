@@ -5,6 +5,7 @@ package Users;
  * 
  */
 
+//needs to be implemented
 public class Doctor extends User{
 
 	public Doctor(String name, String password, int birthday) {
