@@ -43,9 +43,16 @@ public class HomeScreen {
 			primaryStage.setScene(m.getScene());
 		});
 		
+		Button changeInfo = new Button();
+		changeInfo.setText("Change info");
+		changeInfo.setOnAction(e ->{
+			ChangeInfo c = new ChangeInfo(primaryStage);
+			primaryStage.setScene(c.getScene());
+		});
+		
 		
 		VBox layout1 = new VBox();     
-		layout1.getChildren().addAll(l, signout, messages);
+		layout1.getChildren().addAll(l, signout, messages, changeInfo);
 		layout1.snapPositionX(500);
 		home = new Scene(layout1, 1000, 1000);
 	}
@@ -95,9 +102,15 @@ public class HomeScreen {
 			primaryStage.setScene(m.getScene());
 		});
 		
+		Button changeInfo = new Button();
+		changeInfo.setText("Change info");
+		changeInfo.setOnAction(e ->{
+			ChangeInfo c = new ChangeInfo(primaryStage);
+			primaryStage.setScene(c.getScene());
+		});
 		
 		    
-		layout1.getChildren().addAll(l, userName, signout, messages);
+		layout1.getChildren().addAll(l, userName, signout, messages, changeInfo);
 		layout1.snapPositionX(500);
 		home = new Scene(layout1, 1000, 1000);
 	}

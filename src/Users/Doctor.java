@@ -12,5 +12,12 @@ public class Doctor extends User{
 		super(name, password, birthday);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public String getName() {
+		return Name;
+	}
+	public String getPassword() {
+		return Password;
+	}
+	
 }

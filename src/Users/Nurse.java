@@ -11,5 +11,11 @@ public class Nurse extends User{
 		super(name, password, birthday);
 		
 	}
+	public String getName() {
+		return Name;
+	}
+	public String getPassword() {
+		return Password;
+	}
 
 }
