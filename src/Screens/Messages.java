@@ -9,19 +9,39 @@ import javafx.stage.Stage;
 
 public class Messages {
 	Scene messageScene;
+	
+	//stores current messages to display on screen
+	public static ArrayList<String> messagesToDisplay = new ArrayList<String>;
+	
+	
 	public Messages(Stage primaryStage) {
 		//generic home screen, should never be used outside of testing
+		
+		//need to list patient contact info somewhere
 				Label l = new Label();
 				l.setText("Messages");
 				l.setPrefSize(1000,300);
 				l.setMinSize(300, 50);
 				l.setAlignment(Pos.CENTER);
 				
-				
+				//textField
+                TextField tf = new TextField("enter message");
+                //TODO set location of tf
+                
+                //TODO Display Messages
+
+			
 				Button send = new Button();
 				send.setText("Send");
 				send.setOnAction(e -> {
-					//send message
+				    
+				    /*
+				    Msg m = new Msg(patient);
+				    //patient is owner Curernt user could be the patient or doctor or nurse
+				    m.addMsg(currentUser, tf.getText());
+				    messagesToDisplay = m.readMsg();
+				    UpdateMsgScreen(); // updates message screen with new message
+				    */	
 				});
 				
 				
