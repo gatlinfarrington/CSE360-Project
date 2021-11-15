@@ -46,7 +46,7 @@ public class Msg {
     reads the message file and outputs an array list of all the messages so it can be
     used and shown on screen later
     */
-    public static ArrayList < String > readMsg(Patient p) {
+    public static ArrayList < String > readMsg() {
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String line = br.readLine();
         public static ArrayList < String > msgList = new ArrayList < String > ();
