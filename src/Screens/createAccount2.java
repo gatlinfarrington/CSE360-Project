@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;  
 import javafx.stage.Stage; 
 
-public class createAccount extends Application {  
+public class createAccount2 extends Application {  
   
       
 /*public static void main(String[] args) {  
@@ -19,7 +19,7 @@ launch(args);
 public void start(Stage stage)
 {  
     // TODO Auto-generated method stub  
-    Label name = new Label("Name ");  
+    Label name = new Label("Patient Name ");  
     Label Age = new Label("Password "); 
     Label Address = new Label("Address ");
     Label phoneNumber = new Label("Phone Number ");
