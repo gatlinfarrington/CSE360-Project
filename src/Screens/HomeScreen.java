@@ -13,51 +13,6 @@ import Users.*;
 public class HomeScreen {
 	Scene home;
 	//default
-	public HomeScreen(Stage primaryStage) { // everyhting still needs to be implemented, way to show data, way to store records, etc.
-		//generic home screen, should never be used outside of testing
-		Label l = new Label();
-		l.setText("Welcome to the HomePage");
-		l.setPrefSize(1000,300);
-		l.setMinSize(300, 50);
-		l.setAlignment(Pos.CENTER);
-		
-		
-		Button signout = new Button();
-		signout.setText("Sign out");
-		signout.setOnAction(e -> {
-			try {
-				Login log = new Login(primaryStage);
-				primaryStage.setScene(log.getScene());
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
-		});
-		
-		
-		Button messages = new Button();
-		messages.setText("Messages");
-		messages.setOnAction(e -> {
-			Messages m = new Messages(primaryStage);
-			primaryStage.setScene(m.getScene());
-		});
-		
-		Button changeInfo = new Button();
-		changeInfo.setText("Change info");
-		changeInfo.setOnAction(e ->{
-			ChangeInfo c = new ChangeInfo(primaryStage);
-			primaryStage.setScene(c.getScene());
-		});
-		
-		
-		VBox layout1 = new VBox();     
-		layout1.getChildren().addAll(l, signout, messages, changeInfo);
-		layout1.snapPositionX(500);
-		home = new Scene(layout1, 1000, 1000);
-	}
-	
-	
 	//curUser Required
 	public HomeScreen(Stage primaryStage, User curUser) {
 		//generic home screen, should never be used outside of testing
@@ -98,14 +53,14 @@ public class HomeScreen {
 		Button messages = new Button();
 		messages.setText("Messages");
 		messages.setOnAction(e -> {
-			Messages m = new Messages(primaryStage);
+			Messages m = new Messages(primaryStage, curUser);
 			primaryStage.setScene(m.getScene());
 		});
 		
 		Button changeInfo = new Button();
 		changeInfo.setText("Change info");
 		changeInfo.setOnAction(e ->{
-			ChangeInfo c = new ChangeInfo(primaryStage);
+			ChangeInfo c = new ChangeInfo(primaryStage, curUser);
 			primaryStage.setScene(c.getScene());
 		});
 		

@@ -52,7 +52,7 @@ public class ChangeInfo {
 	
 			
 			Button change = new Button();
-			change.setText("Create.");
+			change.setText("Change.");
 			change.setAlignment(Pos.CENTER);
 			change.setOnAction(e -> {
 				curUser.setName(name.getText());

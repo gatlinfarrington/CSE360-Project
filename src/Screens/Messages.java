@@ -1,12 +1,15 @@
 package Screens;
-package Msg;
+//package Msg;
 
+import java.util.ArrayList;
+
+import Users.User;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextInputControl
-import javafx.scene.control.TextField 
+import javafx.scene.control.TextInputControl;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -14,10 +17,10 @@ public class Messages {
 	Scene messageScene;
 	
 	//stores current messages to display on screen
-	public static ArrayList<String> messagesToDisplay = new ArrayList<String>;
+	public static ArrayList<String> messagesToDisplay = new ArrayList<String>();
 	
-	
-	public Messages(Stage primaryStage) {
+	//needs a curUser
+	public Messages(Stage primaryStage, User curUser) {
 		//generic home screen, should never be used outside of testing
 		
 		//need to list patient contact info somewhere
@@ -51,7 +54,7 @@ public class Messages {
 				Button home = new Button();
 				home.setText("Back home");
 				home.setOnAction(e -> {
-					HomeScreen hs = new HomeScreen(primaryStage);
+					HomeScreen hs = new HomeScreen(primaryStage, curUser);
 					primaryStage.setScene(hs.getScene());
 				});
 				
