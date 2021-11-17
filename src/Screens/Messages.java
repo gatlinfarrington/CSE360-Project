@@ -1,9 +1,9 @@
 package Screens;
-//package Msg;
 
 import java.util.ArrayList;
 
 import Users.User;
+import Users.Msg;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,6 +21,9 @@ public class Messages {
 	
 	//needs a curUser
 	public Messages(Stage primaryStage, User curUser) {
+		
+		Msg m = new Msg(curUser);
+		
 		//generic home screen, should never be used outside of testing
 		
 		//need to list patient contact info somewhere
@@ -31,9 +34,20 @@ public class Messages {
 				l.setAlignment(Pos.CENTER);
 				
 				//textField
+				Label msgs = new Label("messages will appear here");
                 TextField tf = new TextField("enter message");
-                //TODO set location of tf
                 
+                messagesToDisplay = m.readMsg(curUser);
+        	    String msgString = "";
+        	    for(int i = 0; i < messagesToDisplay.size();i++) {
+        	    	msgString += "\n" + messagesToDisplay.get(i);
+        	    	msgs.setText(msgString);
+        	    }
+                
+                
+                //TODO set location of tf
+                tf.setAlignment(Pos.CENTER);
+                msgs.setAlignment(Pos.CENTER);
                 //TODO Display Messages
 
 			
@@ -41,13 +55,17 @@ public class Messages {
 				send.setText("Send");
 				send.setOnAction(e -> {
 				    
-				    /*
-				    Msg m = new Msg(patient);
+				    
+				    
 				    //patient is owner Curernt user could be the patient or doctor or nurse
-				    m.addMsg(currentUser, tf.getText());
-				    messagesToDisplay = m.readMsg();
-				    UpdateMsgScreen(); // updates message screen with new message
-				    */	
+				    m.addMsg(curUser, tf.getText());
+				    messagesToDisplay = m.readMsg(curUser);
+				    String msgString2 = "";
+				    for(int i = 0; i < messagesToDisplay.size();i++) {
+				    	msgString2 += "\n" + messagesToDisplay.get(i);
+				    	msgs.setText(msgString2);
+				    }
+				    
 				});
 				
 				
@@ -60,7 +78,7 @@ public class Messages {
 				
 				
 				VBox layout1 = new VBox();     
-				layout1.getChildren().addAll(l, send, home);
+				layout1.getChildren().addAll(l,msgs, send, home, tf);
 				layout1.snapPositionX(500);
 				messageScene = new Scene(layout1, 1000, 1000);
 	}
