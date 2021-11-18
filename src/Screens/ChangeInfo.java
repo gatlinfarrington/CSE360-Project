@@ -71,7 +71,7 @@ public class ChangeInfo {
 			VBox layout1 = new VBox();     
 			layout1.getChildren().addAll(l, name, pw, age, address, phone, email, change);
 			layout1.snapPositionX(500);
-			changeInfo = new Scene(layout1, 1000, 1000);
+			changeInfo = new Scene(layout1, 500, 500);
 		}else if (curUser instanceof Doctor) {
 			//implement
 		}else if(curUser instanceof Nurse) {

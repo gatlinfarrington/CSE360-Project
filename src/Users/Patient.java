@@ -44,5 +44,8 @@ public class Patient extends User{
 	public void setPhone(String phone) {
 		phoneNumber = phone;
 	}
+	public boolean isPat() {
+		return true;
+	}
 
 }

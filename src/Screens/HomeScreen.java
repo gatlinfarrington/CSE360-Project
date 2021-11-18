@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 
@@ -17,12 +18,20 @@ public class HomeScreen {
 	public HomeScreen(Stage primaryStage, User curUser) {
 		//generic home screen, should never be used outside of testing
 		VBox layout1 = new VBox(); 
+		
+		//nav bar
+		
+		HBox navBar = new HBox();
+		
 		Label l = new Label();
 		l.setText("Welcome to the HomePage");
-		l.setPrefSize(1000,300);
-		l.setMinSize(300, 50);
 		l.setAlignment(Pos.CENTER);
+	
 		Label userName = new Label();
+		
+		Label info = new Label();
+		info.setText("Welcome: " + curUser.getName() + " Age: " + curUser.getBirthday());
+		info.setAlignment(Pos.CENTER);
 		if(curUser instanceof Doctor) {
 			//implement doctor home screen
 		}else if(curUser instanceof Nurse) {
@@ -31,8 +40,8 @@ public class HomeScreen {
 			//implement Patient home screen
 			
 			System.out.println("Hello " + curUser.getName());
-			userName.setPrefSize(1000,300);
-			userName.setMinSize(300, 50);
+			//userName.setPrefSize(1000,300);
+			//userName.setMinSize(300, 50);
 			System.out.println("User is a patient");
 		}
 		
@@ -64,10 +73,12 @@ public class HomeScreen {
 			primaryStage.setScene(c.getScene());
 		});
 		
-		    
-		layout1.getChildren().addAll(l, userName, signout, messages, changeInfo);
-		layout1.snapPositionX(500);
-		home = new Scene(layout1, 1000, 1000);
+		navBar.getChildren().addAll( signout, messages, changeInfo);
+		navBar.setAlignment(Pos.CENTER);
+		layout1.getChildren().addAll(l, info, userName, navBar);
+		layout1.setAlignment(Pos.CENTER);
+		
+		home = new Scene(layout1, 500, 500);
 	}
 	
 //	//will implement when curUser is implemented throughout.

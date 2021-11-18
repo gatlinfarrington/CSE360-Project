@@ -1,0 +1,13 @@
+Gatlin Farrington | Hello
+Gatlin Farrington | I would like to schedule and appointment
+Gatlin Farrington | Hello
+Gatlin Farrington | I would like to schedule an appointment for next tuesday at 10 am.
+Gatlin Farrington | Hi Gatlin, it is doctor smith
+Gatlin Farrington | I am busy at 10 am, however I could do 9 or 11.
+Gatlin Farrington | 9 am works great, thank you.
+Gatlin Farrington | enter message
+Gatlin Farrington | See you then.
+Gatlin Farrington | Are we still on for Tuesday at 9?
+Gatlin Farrington | hello, it is doctor smith
+Gatlin Farrington | Yes Gatlin, we are still on for tuesday at 9.
+Gatlin Farrington | This is Nurse Nathan, Gatlin feel free to come to your appointment 15 minutes early to get everything set up for Doctor Smith.

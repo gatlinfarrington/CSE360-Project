@@ -51,7 +51,7 @@ public class Login{
 		login.setAlignment(Pos.CENTER);
 		login.setOnAction(e -> {
 			if(select.getValue().equals("Patient")) { //Patient signin is selected
-				
+				ut.initPatientList();
 				// if the user exists, move to homescreen, set the currentUser
 				if(UserTracker.userExists(ut.getPatientList(), name.getText(), pw.getText())) {
 					System.out.println("User Exists!");
@@ -68,10 +68,36 @@ public class Login{
 				}
 			}
 			else if(select.getValue().equals("Nurse")) {//if Logging into a Nurse, will be same as patient but Swapped out for signing into a nurse
-				
+				ut.initNurseList();
+				if(UserTracker.userExistsN(ut.getNurList(), name.getText(), pw.getText())) {
+					System.out.println("User Exists!");
+					Nurse curNur = UserTracker.getNur(ut.getNurList(), name.getText(), pw.getText());
+					HomeScreen hs = new HomeScreen(primaryStage, curNur);
+					primaryStage.setScene(hs.getScene());
+					
+				}else {
+					name.clear();
+					pw.clear();
+					name.setText("name");
+					pw.setText("Password");
+					l.setText("INCORRECT USERNAME OR PASSWORD");
+				}
 			}
 			else if(select.getValue().equals("Doctor")) {//if Logging into a Doctor, will be same as patient but Swapped out for signing into a Doc
-				
+				ut.initDoctorList();
+				if(UserTracker.userExistsD(ut.getDrList(), name.getText(), pw.getText())) {
+					System.out.println("User Exists!");
+					Doctor curDoc = UserTracker.getDr(ut.getDrList(), name.getText(), pw.getText());
+					HomeScreen hs = new HomeScreen(primaryStage, curDoc);
+					primaryStage.setScene(hs.getScene());
+					
+				}else {
+					name.clear();
+					pw.clear();
+					name.setText("name");
+					pw.setText("Password");
+					l.setText("INCORRECT USERNAME OR PASSWORD");
+				}
 			}else {//if none of the above
 				//if it doesnt display incorrect info, clear the text boxes.
 				name.clear();
@@ -93,10 +119,13 @@ public class Login{
 		});
 		
 		
-		VBox layout1 = new VBox();     
-		layout1.getChildren().addAll(l, name, pw, login, createNew, select);
+		VBox layout1 = new VBox(); 
+		HBox navBar = new HBox();
+		navBar.getChildren().addAll(login, createNew, select);
+		navBar.setAlignment(Pos.CENTER);
+		layout1.getChildren().addAll(l, name, pw, navBar);
 		layout1.snapPositionX(500);
-		scene1= new Scene(layout1, 1000, 1000);
+		scene1= new Scene(layout1, 500, 500);
 		
 		
 	}

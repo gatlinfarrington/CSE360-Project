@@ -17,5 +17,8 @@ public class Nurse extends User{
 	public String getPassword() {
 		return Password;
 	}
+	public boolean isPat() {
+		return false;
+	}
 
 }

@@ -1,6 +1,8 @@
 package Screens;
 
 import Users.Patient;
+import Users.Doctor;
+import Users.Nurse;
 import Users.User;
 import Users.UserTracker;
 import javafx.geometry.Pos;
@@ -57,17 +59,26 @@ public class createAccount {
 		create.setText("Create.");
 		create.setAlignment(Pos.CENTER);
 		create.setOnAction(e -> {
+			User curUser = null;
 			if(type.getValue().equals("Nurse")) {
+				UserTracker.signupNur(name.getText(), pw.getText(), Integer.parseInt(age.getText()),address.getText(), phone.getText(), email.getText());
+				curUser = new Nurse(name.getText(), pw.getText(), Integer.parseInt(age.getText()));
+				HomeScreen patientHome = new HomeScreen(primaryStage, curUser);
+				primaryStage.setScene(patientHome.getScene());
 				
 			}else if(type.getValue().equals("Doctor")) {
+				UserTracker.signupDr(name.getText(), pw.getText(), Integer.parseInt(age.getText()),address.getText(), phone.getText(), email.getText());
+				curUser = new Doctor(name.getText(), pw.getText(), Integer.parseInt(age.getText()));
+				HomeScreen patientHome = new HomeScreen(primaryStage, curUser);
+				primaryStage.setScene(patientHome.getScene());
 				
 			}else if(type.getValue().equals("Patient")) { //Pateint is selected, create a new Patient and add them to the file that keeps track of them, sign in patient
 				UserTracker.signupPatient(name.getText(), pw.getText(), Integer.parseInt(age.getText()),address.getText(), phone.getText(), email.getText());
-				User curUser = new Patient(name.getText(), pw.getText(), Integer.parseInt(age.getText()),address.getText(), phone.getText(), email.getText());
+				curUser = new Nurse(name.getText(), pw.getText(), Integer.parseInt(age.getText()));
 				HomeScreen patientHome = new HomeScreen(primaryStage, curUser);
 				primaryStage.setScene(patientHome.getScene());
 			}
-			HomeScreen hs = new HomeScreen(primaryStage);
+			HomeScreen hs = new HomeScreen(primaryStage,curUser);
 			primaryStage.setScene(hs.getScene());
 		});
 		
@@ -76,7 +87,7 @@ public class createAccount {
 		VBox layout1 = new VBox();     
 		layout1.getChildren().addAll(l, name, pw, age, address, phone, email, type, create);
 		layout1.snapPositionX(500);
-		login = new Scene(layout1, 1000, 1000);
+		login = new Scene(layout1, 500, 500);
 		
 		
 		

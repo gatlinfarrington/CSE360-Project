@@ -46,5 +46,9 @@ public class User {
 	public void setDoctor(Doctor doc) {
 		doc = this.doc;
 	}
+	public boolean isPat() {
+		return false;
+	}
+	
 	
 }
