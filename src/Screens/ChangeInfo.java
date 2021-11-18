@@ -73,9 +73,47 @@ public class ChangeInfo {
 			layout1.snapPositionX(500);
 			changeInfo = new Scene(layout1, 1000, 1000);
 		}else if (curUser instanceof Doctor) {
-			//implement
+				Label l = new Label();
+				l.setText("Change Info");
+				l.setPrefSize(1000,300);
+				l.setMinSize(300, 50);
+				l.setAlignment(Pos.CENTER);
+				
+				TextField name = new TextField();
+				name.setText("name");
+				name.setAlignment(Pos.CENTER);
+				
+				TextField pw = new TextField();
+				pw.setText("Password");
+				pw.setAlignment(Pos.CENTER);
+				
+				Button change = new Button();
+				change.setText("Change.");
+				change.setAlignment(Pos.CENTER);
+				change.setOnAction(e -> {
+					curUser.setName(name.getText());
+					curUser.setPassword(pw.getText());
 		}else if(curUser instanceof Nurse) {
-			//implement
+				Label l = new Label();
+				l.setText("Change Info");
+				l.setPrefSize(1000,300);
+				l.setMinSize(300, 50);
+				l.setAlignment(Pos.CENTER);
+				
+				TextField name = new TextField();
+				name.setText("name");
+				name.setAlignment(Pos.CENTER);
+				
+				TextField pw = new TextField();
+				pw.setText("Password");
+				pw.setAlignment(Pos.CENTER);
+				
+				Button change = new Button();
+				change.setText("Change.");
+				change.setAlignment(Pos.CENTER);
+				change.setOnAction(e -> {
+					curUser.setName(name.getText());
+					curUser.setPassword(pw.getText());
 		}
 	}
 	
