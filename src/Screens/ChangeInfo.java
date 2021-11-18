@@ -60,8 +60,31 @@ public class ChangeInfo {
 				curUser.setBirthday(Integer.parseInt(age.getText()));
 				((Patient) curUser).setPhone(phone.getText());
 				((Patient) curUser).setEmail(email.getText());
-				//change info in txt file
-				
+				//change info in PatientFile.txt 
+				/*
+				 public void changePatientInfo() {
+				 	PrintWriter p = null;
+				 	try {
+				 		p = new PrintWriter("PatientFile.txt");
+				 		BufferedWriter bw = new BufferedWriter(p);
+				 		bw.write(name.getText());
+				 		bw.newLine();
+				 		
+				 		bw.write(pw.getText());
+				 		bw.newLine();
+				 		
+				 		bw.write(Integer.parseInt(age.getText()));
+				 		bw.newLine();
+				 		
+				 		bw.write(Integer.parseInt(phone.getText());
+				 		bw.newLine();
+				 		
+				 		bw.write(email.getText());
+				 	} catch (IOException e) {
+				 		e.printStackTrace();
+				 	}
+				 }
+				*/			
 				HomeScreen h = new HomeScreen(primaryStage, curUser);
 				primaryStage.setScene(h.getScene());
 			});
@@ -73,9 +96,49 @@ public class ChangeInfo {
 			layout1.snapPositionX(500);
 			changeInfo = new Scene(layout1, 500, 500);
 		}else if (curUser instanceof Doctor) {
-			//implement
+				Label l = new Label();
+				l.setText("Change Info");
+				l.setPrefSize(1000,300);
+				l.setMinSize(300, 50);
+				l.setAlignment(Pos.CENTER);
+				
+				TextField name = new TextField();
+				name.setText("name");
+				name.setAlignment(Pos.CENTER);
+				
+				TextField pw = new TextField();
+				pw.setText("Password");
+				pw.setAlignment(Pos.CENTER);
+				
+				Button change = new Button();
+				change.setText("Change.");
+				change.setAlignment(Pos.CENTER);
+				change.setOnAction(e -> {
+					curUser.setName(name.getText());
+					curUser.setPassword(pw.getText());
+
 		}else if(curUser instanceof Nurse) {
-			//implement
+				Label l = new Label();
+				l.setText("Change Info");
+				l.setPrefSize(1000,300);
+				l.setMinSize(300, 50);
+				l.setAlignment(Pos.CENTER);
+				
+				TextField name = new TextField();
+				name.setText("name");
+				name.setAlignment(Pos.CENTER);
+				
+				TextField pw = new TextField();
+				pw.setText("Password");
+				pw.setAlignment(Pos.CENTER);
+				
+				Button change = new Button();
+				change.setText("Change.");
+				change.setAlignment(Pos.CENTER);
+				change.setOnAction(e -> {
+					curUser.setName(name.getText());
+					curUser.setPassword(pw.getText());
+
 		}
 	}
 	
